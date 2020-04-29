@@ -1,45 +1,45 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { StyleSheet,
          Text, 
          View, 
-         KeyboardAvoidingView } from 'react-native'
-import { connect } from 'react-redux'
+         KeyboardAvoidingView } from 'react-native';
+import { connect } from 'react-redux';
 import { TextInput } from 'react-native-gesture-handler';
-import { handleAddDeck } from '../actions'
+import { handleAddDeck } from '../actions';
 
-import { purple, white, gray, orange } from '../utils/colors'
-import CustomBtn from './CustomBtn'
+import { purple, white, gray, orange } from '../utils/colors';
+import CustomBtn from './CustomBtn';
 
 
 class NewDeck extends Component{
     state ={
         input: '',       
-    }
+    };
     handleInputChange = (input) =>{
         this.setState({
             input
-        })
-    }
+        });
+    };
     submitDeck = () =>{
-        const { input } = this.state
-        const { dispatch, navigation } = this.props
+        const { input } = this.state;
+        const { dispatch, navigation } = this.props;
         const deck = {
             title: input,
             questions: [],
-        }
-        dispatch(handleAddDeck(deck))
+        };
+        dispatch(handleAddDeck(deck));
 
         this.setState({
             input: ''
-        })
+        });
         navigation.navigate(
             "DeckView",
             {title: input}
-            )
+            );
 
-    }
+    };
     render(){
-        const { input} = this.state
+        const { input} = this.state;
         return(
             <View style={{flex: 1, backgroundColor: orange}}>
             <KeyboardAvoidingView behavior="padding" style={styles.container}>
@@ -61,9 +61,9 @@ class NewDeck extends Component{
             </KeyboardAvoidingView>
             </View>
             
-        )
-    }
-}
+        );
+    };
+};
 
 const styles = StyleSheet.create({
     container:{    
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         backgroundColor: white
       
     }
-  })
+  });
 
 
 

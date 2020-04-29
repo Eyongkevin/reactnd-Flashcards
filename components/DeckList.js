@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
-import { StyleSheet, Text, ScrollView, View, TouchableOpacity } from 'react-native'
-import { connect } from 'react-redux'
-import { handleInitialData } from '../actions'
-import Deck from './Deck'
+import React, { Component } from 'react';
+import { StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
+
+import { handleInitialData } from '../actions';
+import Deck from './Deck';
 
 
 
@@ -10,7 +11,7 @@ class DeckList extends Component{
     componentDidMount (){
         const { dispatch } = this.props
         dispatch(handleInitialData())
-    }
+    };
     render(){
         const { decks, navigation } = this.props;
         return(
@@ -29,22 +30,22 @@ class DeckList extends Component{
                     </TouchableOpacity>)
                 })}
             </ScrollView>
-        )
-    }
-}
+        );
+    };
+};
 
 const styles = StyleSheet.create({
     container:{
         alignSelf: 'stretch',
         padding: 10
     }
-})
+});
 
 function mapStateToProps ({decks}){
     return{
         decks,
-    }
-}
+    };
+};
 
 
 export default connect(mapStateToProps)(DeckList);

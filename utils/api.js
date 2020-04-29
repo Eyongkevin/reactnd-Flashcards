@@ -1,6 +1,6 @@
-import { AsyncStorage } from 'react-native'
+import { AsyncStorage } from 'react-native';
 
-export const DECK_STORAGE = 'Flashcards:decks'
+export const DECK_STORAGE = 'Flashcards:decks';
 
 const decks = {
     React: {
@@ -31,42 +31,37 @@ const decks = {
             correctAns: 'true'
         }
         ]
-    }
-    
-    
-}
-export const getData = () =>{
-    return decks;
-}
+    }  
+};
 
 export function getDecks (){
-    AsyncStorage.removeItem(DECK_STORAGE)
+    AsyncStorage.removeItem(DECK_STORAGE);
     return AsyncStorage.getItem(DECK_STORAGE)
         .then(results =>{
             if (results === null){
-                AsyncStorage.setItem(DECK_STORAGE, JSON.stringify(decks))
-                return decks
+                AsyncStorage.setItem(DECK_STORAGE, JSON.stringify(decks));
+                return decks;
             }else{
-                return JSON.parse(results)
+                return JSON.parse(results);
             }
-        })
-}
+        });
+};
 
 export function saveNewDeck (title) {
     return getDecks()
         .then((decks) => {
             return {
-            ...decks,
-            [title]: {
-                title,
-                questions: [],
-            }
-            }
+                ...decks,
+                [title]: {
+                    title,
+                    questions: [],
+                }
+            };
         })
         .then((newDecks) => {
-            AsyncStorage.setItem(DECK_STORAGE, JSON.stringify(newDecks))
-        })
-  }
+            AsyncStorage.setItem(DECK_STORAGE, JSON.stringify(newDecks));
+        });
+  };
 
   export function addCardToDeck(card, title){
       getDecks()
@@ -76,9 +71,9 @@ export function saveNewDeck (title) {
                 [title]:{
                     questions: decks[title].questions.concat([card])
                 }
-            }
+            };
         })
         .then((newDecks) =>{
-            AsyncStorage.setItem(DECK_STORAGE, JSON.stringify(newDecks))
-        })
+            AsyncStorage.setItem(DECK_STORAGE, JSON.stringify(newDecks));
+        });
   }

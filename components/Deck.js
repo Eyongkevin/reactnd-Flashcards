@@ -1,18 +1,19 @@
-import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import { purple, white, orange,  gray } from '../utils/colors'
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+
+import { purple, orange,  gray } from '../utils/colors';
 
 
 const Deck = (props) =>{
-    const { title, count } = props
+    const { title, count } = props;
 
     return (
         <View style={styles.deckContainer}>
           <Text style={styles.title}>{title}</Text>
           <Text>{count} cards</Text>
         </View>
-      )
-    }
+      );
+    };
     
 const styles = StyleSheet.create({
   deckContainer: {
@@ -30,15 +31,13 @@ const styles = StyleSheet.create({
         height: 3,
     },
     shadowRadius: 4,
-    shadowOpacity: 1
-
-
+    shadowOpacity: 1,
   },
   title: {
     fontSize: 30,
     fontWeight: 'bold',
     color: purple
   }
-})
+});
     
-    export default Deck
+export default Deck;

@@ -20,6 +20,7 @@ import NewDeck from './components/NewDeck'
 import DeckView from './components/DeckView'
 import AddCard from './components/AddCard'
 import Quiz from './components/Quiz'
+import { setLocalNotification } from './utils/helper'
 
 
 function FlashcardStatusBar ({backgroundColor, ...props}){
@@ -65,15 +66,14 @@ const TabNavigatorConfig = {
   };
 
 const Tab = Platform.OS === 'ios'
-        ? createBottomTabNavigator() 
-        : createMaterialTopTabNavigator()
+  ? createBottomTabNavigator() 
+  : createMaterialTopTabNavigator()
 
 const TabNav = () =>(
-  
-    <Tab.Navigator {...TabNavigatorConfig}>
-        <Tab.Screen {...RouteConfigs['DeckList']} />
-        <Tab.Screen {...RouteConfigs['NewDeck']} />
-    </Tab.Navigator>
+  <Tab.Navigator {...TabNavigatorConfig}>
+    <Tab.Screen {...RouteConfigs['DeckList']} />
+    <Tab.Screen {...RouteConfigs['NewDeck']} />
+  </Tab.Navigator>
 )
 
 // Config for StackNav
@@ -115,8 +115,7 @@ const StackConfig = {
       headerTintColor: white,
       headerStyle:{
         backgroundColor: purple
-      },
-      title: 'Quizing'
+      }
     }
   }
 }
@@ -133,19 +132,21 @@ const MainNav = () =>(
 
 // App
 export default class App extends Component {
+  componentDidMount(){
+    setLocalNotification()
+  }
   render(){
     const store = createStore(reducer, middleware)
 
     return (
-      
-        <Provider store = {store}>
-          <View style={{flex: 1}}>
-          <FlashcardStatusBar backgroundColor={purple} barStyle='light-content' />
-          <NavigationContainer>
-            <MainNav />
-          </NavigationContainer>
-          </View>
-        </Provider>
-      );
-    }
+      <Provider store = {store}>
+        <View style={{flex: 1}}>
+        <FlashcardStatusBar backgroundColor={purple} barStyle='light-content' />
+        <NavigationContainer>
+          <MainNav />
+        </NavigationContainer>
+        </View>
+      </Provider>
+    );
+  }
 }

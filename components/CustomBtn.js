@@ -1,7 +1,7 @@
-import React from 'react'
-import { Text, StyleSheet, TouchableOpacity, Platform } from 'react-native'
+import React from 'react';
+import { Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 
-import { purple, lightPurp, gray, white} from '../utils/colors'
+import { purple, lightPurp, gray, white} from '../utils/colors';
 
 const CustomBtn = ({ onPress, disabled, text }) => {
     return(
@@ -19,8 +19,8 @@ const CustomBtn = ({ onPress, disabled, text }) => {
             </Text>
 
         </TouchableOpacity>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     btnTextLight: {
@@ -49,6 +49,6 @@ const styles = StyleSheet.create({
     disabled: {
         backgroundColor:lightPurp, 
     },
-})
+});
 
-export default CustomBtn
+export default CustomBtn;
