@@ -45,8 +45,8 @@ class Quiz extends Component {
     bounceScore : new Animated.Value(1)
   };
 
-  flipCard() {
-    if (this.value >= 90) {
+  flipCard(front=false) {
+    if (this.value >= 90 || front) {
       Animated.spring(this.animatedValue,{
         toValue: 0,
         friction: 8,
@@ -89,8 +89,10 @@ class Quiz extends Component {
     }else{
       this.setState((recentState) =>({
         cardIdx : recentState.cardIdx + 1,
+        flipSide: 'Front',
         score:  isCorrect ? recentState.score + 1: recentState.score
       }));
+      this.flipCard(true);
     }
   };
 
