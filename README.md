@@ -36,7 +36,7 @@ Next, run Expo on your phone and use it to scan the `QR code` to open the app on
 
 ![](./doc/images/expoMetroBulder.png)
 
-Your browser may automatically open this Metor bundler webpage with some few details as shown in the image above. It presents you will various options to run the project.
+Your browser may automatically open this Metro bundler webpage with some few details as shown in the image above. It presents you with various options to run the project.
 
 ### How it works
 ![Flashcards walkthrough](./doc/images/flashcards.gif)
@@ -61,7 +61,7 @@ The Decks navigator has the following views.
 
 This is the home view of the app. It shows a list of Decks which you can navigate to add more cards and take quizzes.
 
-At the start of the app, the `deck list` will display 3 default decks. However, if the user starts adding decks, a button called `RESET` will appear at the bottom of the page allowing the user to reset back to the default decks.
+At the start of the app, the `deck list` will display 3 default decks. However, if the user starts adding decks, a button called `RESET` will appear at the bottom of the page allowing the user to reset back to the default decks as shown below.
 
 ![Deck List with extra decks](./doc/images/DeckListCustom.png)
 
@@ -72,7 +72,7 @@ At the start of the app, the `deck list` will display 3 default decks. However, 
 
 **Fig 5** Deck view
 
-This shows the deck detail like 
+Clicking on a deck from the `deck view` will show the deck detail like 
 
     - Title
     - Number of cards 
@@ -102,7 +102,7 @@ Submitting a card will redirect you to the `Deck View` with the number of cards 
 
 This is where the user can take his quiz for the deck. It starts off with the first card, showing the Front of the card(Question) allowing the user to press the `Flip Back` button to show the Back of the card(Answer). Now the user can decide if the answer is `correct` or `incorrect` by pressing the corresponding buttons.
 
-After the user has answered all the cards, a score will be displayed to show the user how well he has done in the quiz. The user can then decide to either restart the quize or go back to the `deck view`
+After the user has answered all the cards, a score will be displayed to show the user how well he has done in the quiz. The user can then decide to either restart the quiz or go back to the `deck view`
 
 ![Quiz Results](./doc/images/QuizResults.png)
 
