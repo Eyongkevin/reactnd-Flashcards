@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 import { purple, orange,  gray } from '../utils/colors';
-
+import { getCardsLength } from '../utils/helper'
 
 const Deck = (props) =>{
     const { title, count } = props;
@@ -10,7 +10,7 @@ const Deck = (props) =>{
     return (
         <View style={styles.deckContainer}>
           <Text style={styles.title}>{title}</Text>
-          <Text>{count} cards</Text>
+          <Text>{getCardsLength(count)}</Text>
         </View>
       );
     };

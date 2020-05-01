@@ -4,6 +4,7 @@ import { getDecks, saveNewDeck } from '../utils/api';
 export const ADD_DECK = 'ADD_DECK';
 export const RECEIVE_DECKS = 'RECEIVE_DECKS';
 export const ADD_CARD = 'ADD_CARD';
+export const CLEAR_DECKS = 'CLEAR_DECKS';
 
 
 export function addDeck (deck){
@@ -28,6 +29,11 @@ export function receiveDecks (decks){
     };
 };
 
+export function clearInitialDecks () {
+    return {
+      type: CLEAR_DECKS,
+    }
+  }
 export function handleAddDeck(deck){
     return (dispatch) =>{
         dispatch(addDeck(deck));

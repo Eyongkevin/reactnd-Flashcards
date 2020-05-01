@@ -5,7 +5,7 @@ import { FontAwesome } from '@expo/vector-icons';
 
 import { purple, white, orange, red } from '../utils/colors';
 import CustomBtn from './CustomBtn';
-
+import { getCardsLength } from '../utils/helper'
 
 class DeckView extends Component{
 
@@ -21,7 +21,7 @@ class DeckView extends Component{
         return(
             <View style={styles.container}>
                 <Text style={styles.title}>{ title }</Text>    
-                <Text style={styles.cardNumber}>{questions.length} cards</Text>
+                <Text style={styles.cardNumber}>{getCardsLength(questions.length)}</Text>
                 <TouchableOpacity style={styles.btnLight} onPress={() => navigation.navigate(
                 'AddCard',
                 {deckId: title}

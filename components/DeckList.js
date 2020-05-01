@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, ScrollView, Text, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 
-import { handleInitialData } from '../actions';
+import { handleInitialData, clearInitialDecks } from '../actions';
 import Deck from './Deck';
-
+import { removeDecks } from '../utils/api'
+import { blue } from '../utils/colors'
 
 
 class DeckList extends Component{
@@ -12,10 +13,16 @@ class DeckList extends Component{
         const { dispatch } = this.props
         dispatch(handleInitialData())
     };
+    clear = () => {
+        this.props.dispatch(clearInitialDecks())
+        removeDecks()
+        this.props.dispatch(handleInitialData())
+      };
     render(){
-        const { decks, navigation } = this.props;
+        const { decks, isDummyData, navigation } = this.props;
+        console.log('isdummy is ',isDummyData)
         return(
-            <ScrollView contentContainerStyle={styles.container}>
+            <ScrollView style={styles.container}>
                 {decks && Object.keys(decks).map((key) =>{
                     const {title, questions } = decks[key]
                     return (<TouchableOpacity 
@@ -26,9 +33,18 @@ class DeckList extends Component{
                             )}>
                         <Deck 
                             title={title}
-                            count={questions? questions.length: 0} />
+                            count={questions.length} />
                     </TouchableOpacity>)
                 })}
+                
+                {!isDummyData
+                ? (
+                    <TouchableOpacity onPress={this.clear}>
+                        <Text style={styles.resetTxt}>RESET</Text>
+                    </TouchableOpacity>
+                    )
+                : null
+                }
             </ScrollView>
         );
     };
@@ -38,12 +54,20 @@ const styles = StyleSheet.create({
     container:{
         alignSelf: 'stretch',
         padding: 10
+    },
+    resetTxt: {
+        color: blue,
+        fontSize: 18,
+        marginTop: 20,
+        marginBottom: 30,
+        fontWeight: '300',
     }
 });
 
 function mapStateToProps ({decks}){
     return{
         decks,
+        isDummyData: decks && Object.keys(decks).length === 3,
     };
 };
 

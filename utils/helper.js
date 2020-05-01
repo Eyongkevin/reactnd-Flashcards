@@ -1,10 +1,18 @@
 import React from 'react';
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage, Text } from 'react-native';
 import { Notifications } from 'expo';
 import * as Permissions from 'expo-permissions';
 
 const NOTIFICATION_KEY = 'Flashcards:notifications';
 
+
+export const getCardsLength = (count)=>{
+    if (count === 0 || count > 1){
+        return <Text>{count} cards</Text>
+    }else{
+        return <Text>1 card</Text>
+    }
+}
 
 export function clearLocalNotification () {
     return AsyncStorage.removeItem(NOTIFICATION_KEY)
@@ -13,8 +21,8 @@ export function clearLocalNotification () {
   
 function createNotification () {
     return {
-        title: 'Learn by Flashcards!',
-        body: "👋 don't forget to take a quiz today!",
+        title: 'Study by Flashcards!',
+        body: "👋 do not forget to take a quiz today!",
         ios: {
             sound: true,
         },

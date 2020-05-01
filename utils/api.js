@@ -34,8 +34,11 @@ const decks = {
     }  
 };
 
+export function removeDecks (){
+    return AsyncStorage.removeItem(DECK_STORAGE);
+}
+
 export function getDecks (){
-    AsyncStorage.removeItem(DECK_STORAGE);
     return AsyncStorage.getItem(DECK_STORAGE)
         .then(results =>{
             if (results === null){
