@@ -8,7 +8,7 @@ This is a mobile app that allows users to study collections of flashcards. The a
 ### How to Install
 In your terminal, enter the commands below
 ```
-$ https://github.com/Eyongkevin/reactnd-Flashcards.git
+$ git clone https://github.com/Eyongkevin/reactnd-Flashcards.git
 
 $ cd reactnd-Flashcards
 
@@ -27,11 +27,13 @@ Then, `cd` to the root directory of this project and run   `expo start`.
  After running this command, you will see the outcome below:
  
 1.  From Terminal
+
 ![](./doc/images/expoStart.png)
 
 Next, run Expo on your phone and use it to scan the `QR code` to open the app on your phone. Or, press `a` for run on an Android emulator if you have it installed already.
 
-1. From Web
+2. From Web
+
 ![](./doc/images/expoMetroBulder.png)
 
 Your browser may automatically open this Metor bundler webpage with some few details as shown in the image above. It presents you will various options to run the project.
