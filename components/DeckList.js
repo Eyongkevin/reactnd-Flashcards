@@ -20,7 +20,6 @@ class DeckList extends Component{
       };
     render(){
         const { decks, isDummyData, navigation } = this.props;
-        console.log('isdummy is ',isDummyData)
         return(
             <ScrollView style={styles.container}>
                 {decks && Object.keys(decks).map((key) =>{
