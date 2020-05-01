@@ -39,26 +39,39 @@ Next, run Expo on your phone and use it to scan the `QR code` to open the app on
 Your browser may automatically open this Metor bundler webpage with some few details as shown in the image above. It presents you will various options to run the project.
 
 ### How it works
+![Flashcards walkthrough](./doc/images/flashcards.gif)
+
+**Fig 1** Walk-through using Chrome Web browser
+
 I will describe how this app works base on testing it on an Android mobile device. 
 
 #### Nav
-![](./doc/images/Nav.png)
+![Navigation tab](./doc/images/Nav.png)
+
+**Fig 2** Navigation tabs
 
 The navigation has two elements `Decks` and `New Deck`. I will explain each element in detail.
 
 #### Decks 
 The Decks navigator has the following views.
 ##### Deck List
-![](./doc/images/DeckListDefault.png)
+![Deck List with defult decks](./doc/images/DeckListDefault.png)
+
+**Fig 3** Deck List with default decks
 
 This is the home view of the app. It shows a list of Decks which you can navigate to add more cards and take quizzes.
 
 At the start of the app, the `deck list` will display 3 default decks. However, if the user starts adding decks, a button called `RESET` will appear at the bottom of the page allowing the user to reset back to the default decks.
 
-![](./doc/images/DeckListCustom.png)
+![Deck List with extra decks](./doc/images/DeckListCustom.png)
+
+**Fig 4** Deck list with extra decks
 
 ##### Deck View
-![](./doc/images/DeckView.png)
+![Deck View](./doc/images/DeckView.png)
+
+**Fig 5** Deck view
+
 This shows the deck detail like 
 
     - Title
@@ -68,7 +81,9 @@ This shows the deck detail like
 The button `Start Quiz` is only enabled if there are cards in the deck. So, If there is no card in the deck, a warning message will be displayed "**Add card before you can start quiz**" which reminds you to add cards into the deck.
 
 ##### Add Card 
-![](./doc/images/AddCard.png)
+![Add card](./doc/images/AddCard.png)
+
+**Fig 6** Add card to deck
 
 Pressing the `Add Card` button from the `Deck View` will redirect you to the view where you can add a card. A card should have a 
 
@@ -81,19 +96,25 @@ The `Submit` is only enabled if all fields have been filed. Else, a warning mess
 Submitting a card will redirect you to the `Deck View` with the number of cards now available in the deck.
 
 ##### Quiz
-![](./doc/images/Quiz.png)
+![Quiz](./doc/images/Quiz.png)
+
+**Fig 7** Take a quiz
 
 This is where the user can take his quiz for the deck. It starts off with the first card, showing the Front of the card(Question) allowing the user to press the `Flip Back` button to show the Back of the card(Answer). Now the user can decide if the answer is `correct` or `incorrect` by pressing the corresponding buttons.
 
 After the user has answered all the cards, a score will be displayed to show the user how well he has done in the quiz. The user can then decide to either restart the quize or go back to the `deck view`
 
-![](./doc/images/QuizResults.png)
+![Quiz Results](./doc/images/QuizResults.png)
+
+**Fig 8** Quiz results
 
 >>A notification system is set to remind the user exactly at 8pm every day to take a quiz for the day. The notification is reset if a user takes a quiz.
 
 #### New Deck
-![](./doc/images/AddDeck.png
-)
+![Add Deck](./doc/images/AddDeck.png)
+
+**Fig 9** Add Deck
+
 This section allows the user to add a new deck. The only requirement to crete a new deck is the deck's name or title. Any deck created here will be displayed in the `deck list` section.
 >>The create deck button is only enabled once there is text in the input field.
 
